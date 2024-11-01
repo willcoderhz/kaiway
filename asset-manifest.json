@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/kaiway/static/css/main.121cafc3.css",
+    "main.js": "/kaiway/static/js/main.25f86c48.js",
+    "static/js/453.82d35145.chunk.js": "/kaiway/static/js/453.82d35145.chunk.js",
+    "index.html": "/kaiway/index.html",
+    "main.121cafc3.css.map": "/kaiway/static/css/main.121cafc3.css.map",
+    "main.25f86c48.js.map": "/kaiway/static/js/main.25f86c48.js.map",
+    "453.82d35145.chunk.js.map": "/kaiway/static/js/453.82d35145.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.121cafc3.css",
+    "static/js/main.25f86c48.js"
+  ]
+}
