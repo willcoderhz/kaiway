@@ -14,7 +14,7 @@ const Flights = () => (
           <div>起飞时间: 08:00</div>
           <div>到达时间: 12:00</div>
         </div>
-        <Link to="/train" className="select-button">选择</Link>
+        <Link to="/checkout" className="select-button">选择</Link>
       </div>
 
       <div className="flight-option">
@@ -23,7 +23,7 @@ const Flights = () => (
           <div>起飞时间: 10:00</div>
           <div>到达时间: 14:00</div>
         </div>
-        <Link to="/train" className="select-button">选择</Link>
+        <Link to="/checkout" className="select-button">选择</Link>
       </div>
 
       <div className="flight-option">
@@ -32,8 +32,9 @@ const Flights = () => (
           <div>起飞时间: 15:00</div>
           <div>到达时间: 19:00</div>
         </div>
-        <Link to="/train" className="select-button">选择</Link>
+        <Link to="/checkout" className="select-button">选择</Link>
       </div>
+      
     </div>
   </div>
 );

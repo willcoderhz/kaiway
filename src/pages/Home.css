@@ -1,59 +1,279 @@
-/* src/pages/Home.css */
 body, html {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    background-color: #e5e5e5;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #e5e5e5;
+}
+
+.phone-frame {
+  width: 375px;
+  height: 812px;
+  background-color: #ffffff;
+  border-radius: 30px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header-image-container {
+  position: relative;
+  width: 100%;
+  height: 150px;
+  overflow: hidden;
+}
+
+.header-image {
+  width: 100%;
+  height: 90%;
+  object-fit: cover;
+}
+
+.header-overlay-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  pointer-events: none; /* Ensures the overlay doesn't interfere with any interactions */
   
-  .phone-frame {
-    width: 375px; /* 设置手机端的宽度 */
-    height: 667px; /* 设置手机端的高度 */
-    background-color: #ffffff;
-    border-radius: 30px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+}
+
+.header-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background: rgba(0, 0, 0, 0.1);
+  color: white;
+}
+
+
+
+.home-container {
+  padding: 20px;
+  width: 90%;
+  z-index: 99;
+}
+
+.search-form {
+  background-color: #ffffff;
+  padding: 5px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: -47px;
+  align-items: center; 
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 5px;
+}
+
+.form-sections {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-section {
+  display: flex;
+  align-items: center;
+  padding: 6px 0;
+}
+
+.icon {
+  font-size: 20px;
+  color: #888;
+  margin-right: 10px;
+}
+
+.form-details {
+  flex: 1;
+}
+
+label {
+  display: block;
+  font-size: 12px;
+  color: #666;
+  font-weight: bold;
+}
+
+.form-details span {
+  font-size: 14px;
+  color: #666;
+  font-weight: 500;
+}
+
+.exchange-icon {
+  color: #00796b;
+  font-size: 24px;
+  margin-left: 20px;
+}
+
+
+.toggle-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 10px;
+}
+
+.toggle-switch {
+  position: relative;
+  width: 34px;
+  height: 20px;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  border-radius: 34px;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 12px;
+  width: 12px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+.toggle-switch input:checked + .slider {
+  background-color: #00796b;
+}
+
+.toggle-switch input:checked + .slider:before {
+  transform: translateX(14px);
+}
+
+.passengers-class {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 30px;
   
-  /* 设置内容容器居中和样式 */
-  .home-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    height: 100%;
-    background: #f7f9fc;
-  }
-  
-  .title {
-    font-size: 24px;
-    color: #333;
-    margin-bottom: 20px;
-    text-align: center;
-  }
-  
-  .search-button {
-    display: inline-block;
-    padding: 12px 24px;
-    font-size: 16px;
-    font-weight: bold;
-    color: white;
-    background-color: #007aff;
-    border-radius: 8px;
-    text-decoration: none;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s;
-    width: 80%;
-    text-align: center;
-  }
-  
-  .search-button:hover {
-    background-color: #005bb5;
-  }
-  
+}
+
+.passenger-details, .class-details {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.icon {
+  font-size: 18px;
+  color: #888;
+}
+
+.detail-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  font-size: 12px;
+  color: #6e6e6e;
+  font-weight: normal;
+}
+
+.value {
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+}
+
+.search-button {
+  display: block;
+  width: 90%;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  background-color: #1a472a;
+  border-radius: 8px;
+  text-align: center;
+  text-decoration: none;
+  margin: 20px auto 0 auto; 
+}
+
+.search-button:hover {
+  background-color: #0f3b1e;
+}
+
+.divider {
+  width: 80%;
+  height: 1px;
+  background-color: #e0e0e069; /* 浅灰色 */
+  margin: 0px 10px; /* 上下间距 */
+  padding: 0 20px;
+}
+
+.recent-searches {
+  margin-top: 10px;
+  padding: 0px 10px;
+  background-color: #ffffff;
+  border-radius: 8px;
+}
+
+.recent-searches-title {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.recent-search-item {
+  background-color: #ffffff;
+  padding: 5px;
+  border-radius: 8px;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.route {
+  font-size: 15px;
+  font-weight: bold;
+  color: #00796b;
+}
+
+.dates {
+  font-size: 13px;
+  color: #666;
+  margin-top: 4px;
+}
+
+
+.input-field {
+  width: 90%;
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  color: #333;
+  margin-top: 4px;
+}
+
