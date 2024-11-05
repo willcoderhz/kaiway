@@ -21,7 +21,7 @@ body, html {
   }
   
   .flights-container {
-    padding: 20px;
+    padding: px;
     width: 100%;
     height: 100%;
     background-color: #f7f9fc;
@@ -30,43 +30,407 @@ body, html {
     align-items: center;
   }
   
-  .title {
-    font-size: 24px;
-    color: #333;
-    margin-bottom: 20px;
+  header-image-container2{
+    margin: 0;
+  }
+
+  
+
+  .listname {
+    font-size: 12px;
+    color: #888888;
+    margin: 10px;
+    text-align: center;
+  }
+
+  .listname2 {
+    font-size: 12px;
+    color: #006564;
+    margin: 10px;
     text-align: center;
   }
   
   .flight-option {
-    width: 90%;
+    width: 80%;
     background-color: #ffffff;
     border: 1px solid #ddd;
-    padding: 15px;
+    padding: 0px 15px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin-bottom: 15px;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+  }
+  
+  .flight-info {
+    padding: 0px;
+    margin: 10px 0;
+    border-radius: 8px;
+    background-color: #fff;
+  }
+  
+  .flight-summary {
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
   
-  .flight-info {
-    font-size: 16px;
-    color: #333;
-  }
-  
-  .select-button {
-    padding: 8px 16px;
-    font-size: 14px;
-    color: white;
-    background-color: #007aff;
-    border-radius: 8px;
-    text-decoration: none;
+  .departure, .arrival {
     text-align: center;
-    transition: background-color 0.3s;
+    display: flex;
+    flex-direction: column;
+    padding: 0 2px;
+    
   }
   
-  .select-button:hover {
-    background-color: #005bb5;
+  .departure-time, .arrival-time {
+    font-weight: bold;
+    font-size: 1.2em;
+  }
+  
+  .airport, .destination {
+    font-size: 0.9em;
+    color: #888;
+  }
+  
+  .flight-duration {
+    text-align: center;
+    color: #888;
+    display: flex;
+    flex-direction: column;
+    padding: 0 3px;
+  }
+  
+  .price {
+    font-weight: bold;
+    color: #00796b;
+    font-size: 1em;
+    padding-left: 9px;
+  }
+  
+  .flight-details {
+    padding-top: 5px;
+  }
+  
+  .airline-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+  }
+
+  .trainss-info{
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+  }
+
+  
+  
+  .airline-logo, .train-logo {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+  }
+  
+  .dropdown-button {
+    background: none;
+    border: none;
+    color: #888;
+    font-size: 1.2em;
+    margin-left: 8px;
+    cursor: pointer;
+  }
+  
+
+  .modal-overlay {
+    position: absolute;
+    top: -70px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding-top: 0px; /* Space from the top within the phone frame */
+    border-radius: 30px; /* Match the phone frame's rounded corners */
+  }
+  
+  .modal-content {
+    background: #fff;
+    padding: 10px  20px;
+    border-radius: 8px 8px 32px 32px;
+    width: 90%;
+    max-width: 335px; /* Slightly smaller than the phone frame width */
+    max-height: 80%; /* Ensures it fits within the phone frame height */
+    overflow-y: auto; /* Enables scrolling if content overflows */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for visibility */
+    position: relative;
+    top: 120px;
+    font-size: medium;
+  }
+
+  .modal-content h2{
+    margin: 0; /* Remove default margin for centering */
+    font-size: 1.2em;
+    text-align: center;
+    flex-grow: 1; /* Make the title take up available space */
+  }
+  
+  .first_line {
+    display: flex;
+    justify-content: center; /* Center the title horizontally */
+    align-items: center; /* Vertically align items in the center */
+    position: relative; /* Allows absolute positioning of the button */
+    padding: 10px 0;
+  }
+  .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.2em;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .divider-line {
+    width: 100%;
+    height: 1px;
+    background-color: #e4e4e4; /* Light gray color */
+    margin-top: 0px; /* Adjust spacing as needed */
+  }
+
+  .tab-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 8px;
+  }
+
+
+  
+  .tab1 {
+    width: 50%; /* Each tab takes up half of the container */
+    text-align: center;
+    font-size: 0.9em;
+    color: #00796b; /* Default color for inactive tab */
+    padding-bottom: 4px; /* Space for the underline */
+    position: relative;
+    cursor: pointer;
+    border-bottom: 2px solid #00796b;
+    font-weight: bold;
+    padding-top: 5px;
+  }
+
+  .tab2 {
+    width: 50%; /* Each tab takes up half of the container */
+    text-align: center;
+    font-size: 0.9em;
+    color: #808080; /* Default color for inactive tab */
+    padding-bottom: 4px; /* Space for the underline */
+    position: relative;
+    cursor: pointer;
+    border-bottom: 2px solid #ccc;
+    padding-top: 5px;
+  }
+  
+  .tab.active {
+    color: #00796b; /* Active tab color */
+    font-weight: bold;
+  }
+  
+  .trip-info, .pricing-info {
+    margin-top: 0px;
+  }
+  
+  .trip_name{
+    font-weight: bold;
+  }
+
+  .trip_details{
+    margin-top: 10px;
+    border-radius: 5px;
+    border:1px solid #e6e6e6;
+    padding: 0px 5px;
+  }
+
+  .modal-logo {
+    width: 40px;
+    height: 40px;
+    
+    margin-left: 10px;
+    margin-top: 5px;
+  }
+  
+  .flight-segment, .train-segment {
+    display: flex;
+    
+    margin-bottom: 15px;
+    flex-direction: column;
+  }
+
+  .one_flight{
+    display: flex;
+    flex-direction: row;
+    align-items:center;
+    margin-bottom: 10px;
+  }
+
+  .trip_detailss{
+    display: flex;
+    flex-direction: row;
+    
+  }
+
+  .trip_detailss .form{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .s11{
+    padding-left: 10px;
+    margin: 0;
+    font-size: 13px;
+  }
+
+  .s12{
+    padding-top: 10px;
+  }
+
+  .s13{
+    font-weight: bold;
+    padding-top: 5px;
+  }
+
+  .s14{
+    font-weight: 600;
+  }
+
+  .flight-details{
+    display: flex;
+    flex-direction: column;
+    margin-left: 5px;
+  }
+
+  .flight-details .infof1{
+    font-weight: bold;
+    font-size: 13px;
+  }
+
+  .flight-details .infof2{
+    color: #ccc;
+    font-weight: bold;
+    font-size: 12px;
+    padding-top: 2px;
+  }
+  
+  .flight-segment img, .train-segment img {
+    margin-right: 8px;
+  }
+  
+
+  .info-box {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd; /* Light gray border */
+    border-radius: 8px;
+    padding: 5px;
+    background-color: #fafafa; /* Light background */
+    font-size: 14px;
+    color: #333; /* Dark gray text color */
+    max-width: 300px; /* Adjust as needed */
+    margin: 2px;
+    
+  }
+  
+  .info-icon {
+    font-size: 16px; /* Adjust size of the info icon */
+    color: #888; /* Gray color for the icon */
+    margin-right: 8px; /* Space between icon and text */
+  }
+  
+  .info-text {
+    line-height: 1.4;
+    font-size: 14px;
+  }
+
+  .details-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 4px 0;
+    font-size: 14px;
+    color: #333; /* Dark gray text color */
+    margin: 0 auto;
+  }
+  
+  .left-content {
+    flex: 1;
+    font-weight: 500;
+  }
+  
+  .right-content {
+    text-align: right;
+  }
+  
+  .right-content p {
+    margin: 0;
+    line-height: 1.4;
+    font-weight: 400;
+  }
+  
+  .summary {
+    font-size: 14px;
+    color: #000000; /* Default text color */
+  }
+  
+  .summary-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 1px 0;
+  }
+  
+ 
+  .value {
+    color: #000000; /* Default color for values */
+    font-weight: 400;
+  }
+  
+  .total-row {
+    margin-top: 0px;
+    
+  }
+  
+  .label2{
+    font-size: 13px;
+    color: #4b4b4b;
+  }
+  .total-value {
+    color: #00796b; /* Special green color for the total amount */
+  }
+  
+
+  .select-button2 {
+    background-color: #006564; /* Dark green background color */
+    color: #ffffff; /* White text color */
+    padding: 7px 0px; /* Padding for height and width */
+    font-size: 16px; /* Font size for readability */
+    border: none; /* Removes default border */
+    border-radius: 8px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    text-align: center; /* Centers the text */
+    width: 100%; /* Full width of the button */
+    margin-top: 3px;
+    margin-bottom: 0px;
+  }
+  
+  .select-button2:hover {
+    background-color: #253734; /* Slightly darker shade on hover */
   }
   
