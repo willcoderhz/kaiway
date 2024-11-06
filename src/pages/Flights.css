@@ -434,3 +434,30 @@ body, html {
     background-color: #253734; /* Slightly darker shade on hover */
   }
   
+  .button-container {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .floating-button {
+    position: absolute;
+    left: 50%; /* Center horizontally within its container */
+    top: 50%; /* Center vertically within its container */
+    transform: translate(-340%, -130%); /* Perfect center alignment */
+    z-index: 10; /* Ensures it sits above other elements */
+    background-color: #ffffff; /* Button background color */
+    color: #ffffff00; /* Button text color */
+    border: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    pointer-events: auto; /* Ensures it’s clickable */
+    opacity: 1; /* Makes it visible */
+    background: transparent;
+  }
+  
+  .button-container {
+    width: 0; /* No width so it doesn't take up space */
+    height: 0; /* No height so it doesn't take up space */
+    overflow: visible; /* Allows the button to overflow */
+  }

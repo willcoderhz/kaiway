@@ -31,6 +31,10 @@ const Checkout = () => {
   const handleClick = () => {
     navigate('/Success'); // Replace '/target-path' with your desired route
   };
+
+  const goback=()=>{
+    navigate('/flights')
+  }
   
   return (
   
@@ -39,7 +43,11 @@ const Checkout = () => {
     <div className="header-image-container3">
         <img src={`${process.env.PUBLIC_URL}/asset/picture4.png`} alt="Airplane wing" className="header-image header2" />    
     </div>
-   
+    <div className="button-container">
+        <button className="floating-button" onClick={goback} aria-label="Floating button">
+          "Click Me"
+        </button>
+      </div>
     <div className="flights-container">
      
     {services.map((service, index) => (

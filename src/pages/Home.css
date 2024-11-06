@@ -126,6 +126,8 @@ label {
   align-items: center;
   gap: 8px;
   margin-left: 10px;
+  flex-direction: column;
+  margin-right: 20px;
 }
 
 .toggle-switch {
@@ -276,4 +278,23 @@ label {
   color: #333;
   margin-top: 4px;
 }
+
+.exchange-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px; /* Adjust size as needed */
+  height: 30px; /* Ensure width and height are equal to make a circle */
+  border: 1px solid #00796b; /* Color of the border */
+  border-radius: 50%; /* Makes the container a circle */
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  margin-right: 30px;
+}
+
+.exchange-icons {
+  font-size: 18px; /* Adjust icon size as needed */
+  color: #00796b; /* Icon color */
+}
+
 

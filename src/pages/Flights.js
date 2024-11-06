@@ -5,10 +5,13 @@ import './Flights.css';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+
 const Flights = () => {
-
+  const navigate = useNavigate();
  
-
+  const goback=()=>{
+    navigate("/")
+  }
   const [selectedFlight, setSelectedFlight] = useState(null);
 
   const handleFlightClick = (flight) => {
@@ -27,6 +30,12 @@ const Flights = () => {
     <div className="header-image-container">
         <img src={`${process.env.PUBLIC_URL}/asset/picture2.png`} alt="Airplane wing" className="header-image" />    
     </div>
+    
+      <div className="button-container">
+        <button className="floating-button" onClick={goback} aria-label="Floating button">
+          "Click Me"
+        </button>
+      </div>
     <div className="header-image-container2">
         <img src={`${process.env.PUBLIC_URL}/asset/picture3.png`} alt="Airplane wing" className="header-image" />    
     </div>
@@ -77,7 +86,7 @@ const Flights = () => {
       </div>
 
       {/* Flight Option 2 */}
-      <div className="flight-option">
+      <div className="flight-option" onClick={() => handleFlightClick('Flight 2 Details')}>
       <div className="flight-info">
         <div className="flight-summary">
           <div className="departure">
@@ -97,7 +106,7 @@ const Flights = () => {
             <span>AUD $1452.74</span>
           </div>
         </div>
-        <div className="flight-details">
+        <div className="flight-details" >
           <div className="airline-info">
             <div className="airline-details">
               <img src={`${process.env.PUBLIC_URL}/asset/logo1.png`} alt="Cathay Pacific Logo" className="airline-logo" />
@@ -121,7 +130,7 @@ const Flights = () => {
       </div>
 
       {/* Flight Option 3 */}
-      <div className="flight-option">
+      <div className="flight-option" onClick={() => handleFlightClick('Flight 3 Details')}>
       <div className="flight-info">
         <div className="flight-summary">
           <div className="departure">

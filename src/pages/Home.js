@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import './Home.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowsUpDown } from '@fortawesome/free-solid-svg-icons';
 
 const Home = () => {
   const [departureDate, setDepartureDate] = useState(null);
@@ -50,7 +52,9 @@ const Home = () => {
                 </div>
               </div>
             </div>
-            <span className="exchange-icon">🔄</span>
+            <div className="exchange-container">
+            <FontAwesomeIcon icon={faArrowsUpDown} className="exchange-icons" />
+          </div>
           </div>
 
           <div className="divider"></div>
