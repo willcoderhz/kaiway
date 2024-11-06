@@ -6,6 +6,13 @@ import 'react-datepicker/dist/react-datepicker.css';
 import './Home.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowsUpDown } from '@fortawesome/free-solid-svg-icons';
+import { faPlaneDeparture } from '@fortawesome/free-solid-svg-icons';
+import { faPlaneArrival } from '@fortawesome/free-solid-svg-icons';
+import { faCalendar } from '@fortawesome/free-solid-svg-icons';
+import { faCalendarDay } from '@fortawesome/free-solid-svg-icons';
+import { faCalendarWeek } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faPlane } from '@fortawesome/free-solid-svg-icons';
+
 
 const Home = () => {
   const [departureDate, setDepartureDate] = useState(null);
@@ -25,7 +32,7 @@ const Home = () => {
           <div className="container">
             <div className="form-sections">
               <div className="form-section">
-                <span className="icon">🛫</span>
+              <FontAwesomeIcon icon={faPlaneDeparture} className="icon" />
                 <div className="form-details">
                   <label>Departure</label>
                   <input
@@ -39,7 +46,7 @@ const Home = () => {
               </div>
               
               <div className="form-section">
-                <span className="icon">🛬</span>
+              <FontAwesomeIcon icon={faPlaneArrival} className="icon"/>
                 <div className="form-details">
                   <label>Destination</label>
                   <input
@@ -62,7 +69,7 @@ const Home = () => {
           <div className="container">
             <div className="left-section">
               <div className="form-section">
-                <span className="icon">📅</span>
+              <FontAwesomeIcon icon={faCalendarDay} className="icon calendar"/>
                 <div className="form-details">
                   <label>Departure date</label>
                   <DatePicker
@@ -76,7 +83,7 @@ const Home = () => {
               </div>
               
               <div className="form-section">
-                <span className="icon">📅</span>
+              <FontAwesomeIcon icon={faCalendarWeek} className="icon calendar"/>
                 <div className="form-details">
                   <label>Return date</label>
                   <DatePicker
@@ -101,14 +108,14 @@ const Home = () => {
 
           <div className="form-section passengers-class">
             <div className="passenger-details">
-              <span className="icon">👤</span>
+            <FontAwesomeIcon icon={faUser} size="2x" className="icon figure" /> {/* 人像图标 */}
               <div className="detail-text">
                 <span className="label">Passenger</span>
                 <span className="value">1 passenger</span>
               </div>
             </div>
             <div className="class-details">
-              <span className="icon">💺</span>
+            <FontAwesomeIcon icon={faPlane} size="2x" className="icon" />
               <div className="detail-text">
                 <span className="label">Class</span>
                 <span className="value">Economy</span>

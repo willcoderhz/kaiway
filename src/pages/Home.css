@@ -297,4 +297,11 @@ label {
   color: #00796b; /* Icon color */
 }
 
+.calendar{
+  padding: 0px 3px;
+}
+
+.figure{
+  padding-left: 8px;
+}
 
