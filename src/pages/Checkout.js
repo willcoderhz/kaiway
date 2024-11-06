@@ -29,7 +29,7 @@ const Checkout = () => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate('/Success'); // Replace '/target-path' with your desired route
+    navigate('/payment'); // Replace '/target-path' with your desired route
   };
 
   const goback=()=>{
