@@ -1,70 +1,59 @@
-# Getting Started with Create React App
+# Kaiway
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Kaiway is an integrated booking platform that allows users to seamlessly book flights and trains in a single application, providing an all-in-one travel solution.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- **Multi-Mode Travel Integration**: Search and book combined air and rail journeys in one go.
+- **Flight and Train Details**: Access comprehensive information about departure/arrival times, pricing, stops, and ticket class options.
+- **Real-Time Order Processing**: After booking, receive immediate updates on payment and ticket confirmation.
+- **QR Code for Easy Access**: Get a QR code for quick ticket access.
+- **Enhanced User Experience**: Interactive UI with tooltips, animations, and Font Awesome icons for easy navigation.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Frontend
 
-### `npm test`
+- **React**: Modular, component-based structure.
+- **State Management**: React hooks (`useState`, `useEffect`) to handle dynamic content and manage booking states.
+- **Responsive Design**: CSS Flexbox and Grid, ensuring consistent layout across devices.
+- **Interactive Icons**: Font Awesome for visual cues and better user engagement.
+- **Context API**: Share data (e.g., booking details) across components without prop drilling.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## Backend (AWS)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **AWS Lambda + API Gateway**: Serverless architecture for scalable flight and train data requests.
+- **AWS EC2**: For hosting API services, handling dynamic backend operations.
+- **Amazon S3**: Stores static assets (images, CSS, JavaScript), enabling fast, reliable access.
+- **Amazon RDS**: Manages relational data like bookings and user details with automatic backups.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## How to Use
 
-### `npm run eject`
+1. **Search**: Enter your origin, destination, and date.
+2. **Select Journey**: Review available flights and train options.
+3. **Book**: Complete the booking, view details, and receive a QR code.
+4. **Check Status**: Track booking and payment status with real-time updates.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Tech Stack
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- **Frontend**: React, CSS, Font Awesome
+- **Backend**: AWS (Lambda, EC2, S3, RDS)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
+## Future Enhancements
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- **User Account Management**: Personalized profiles, saved trips.
+- **Enhanced Analytics**: Predictive journey suggestions based on user preferences.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Kaiway simplifies multi-mode travel booking, making it a unified and efficient experience for travelers.
