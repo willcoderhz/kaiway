@@ -12,6 +12,10 @@ const Confirm = () => {
     navigate('/detail'); // Replace '/target-path' with your desired route
   };
 
+  const home=()=>{
+    navigate("/")
+  }
+
   return (
     
     <div className="phone-frame">
@@ -23,7 +27,7 @@ const Confirm = () => {
       <h1 className="success-message">Successful payment!</h1>
       <p className="success-subtext">Discover more trips or check your ticket details</p>
       <div className="button-container">
-        <button className="button go-home">Go to home</button>
+        <button className="button go-home" onClick={home}>Go to home</button>
         <button className="button view-details" onClick={handleClick}>View ticket details</button>
       </div>
     </div>

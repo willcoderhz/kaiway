@@ -14,7 +14,7 @@ const Home = () => {
   return (
     <div className="phone-frame">
       <div className="header-image-container">
-        <img src={`${process.env.PUBLIC_URL}/asset/picture1.png`} alt="Airplane wing" className="header-image" />
+        <img src={`${process.env.PUBLIC_URL}/asset/test.jpg`} alt="Airplane wing" className="header-image" />
         <img src={`${process.env.PUBLIC_URL}/asset/overlay.png`} alt="Overlay" className="header-overlay-image" />
       </div>
 
