@@ -1,0 +1,99 @@
+body, html {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #e5e5e5;
+  }
+
+  .phone-frame2 {
+    width: 375px;
+    height: 667px;
+    background-color: #f8f8f8;
+    border-radius: 30px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .trip_details{
+    background-color: white;
+  }
+
+  .trip2{
+    margin-top: 10px;
+  }
+
+  .state{
+ 
+    font-weight: 500;
+    background-color: rgb(175, 253, 198);
+    color: #007D3A;
+    display: inline-block;
+    padding: 5PX 7PX;
+    margin-top: 10px;
+    border-radius: 8PX;
+  }
+
+  .clickable-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f8f6f2c5; /* Light background color */
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+    margin: 0px 10px;
+    margin-top: 10px;
+  }
+  
+  .clickable-box:hover {
+    background-color: #eae6df; /* Slightly darker color on hover */
+  }
+  
+  .box-text {
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .box-icon {
+    font-size: 20px;
+    color: #4a7a8c; /* Icon color */
+  }
+  
+  .accordion-list {
+    width: 100%;
+    max-width: 400px; /* Adjust width as needed */
+    margin: 0 auto;
+  }
+  
+  .accordion-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 16px;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .accordion-item:hover {
+    background-color: #f8f8f8;
+  }
+  
+  .item-text {
+    font-weight: 500;
+  }
+  
+  .chevron-icon {
+    color: #888;
+    font-size: 14px;
+  }
+  

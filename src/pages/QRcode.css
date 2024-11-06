@@ -1,0 +1,12 @@
+.qrcode {
+    width: 100%; /* Makes the QR code image take up the full width of its container */
+    max-width: 260px; /* Sets a max width to prevent it from getting too large */
+    height: auto; /* Maintains the aspect ratio */
+    margin-bottom: 0px; /* Adds spacing below the QR code */
+    
+  }
+
+  .flight-segment4{
+    text-align: center; /* Centers the QR code image within this container */
+ 
+  }

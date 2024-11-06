@@ -27,13 +27,13 @@ body, html {
     justify-content: center;
     height: 100%;
     padding: 20px;
-    background-color: #f7f9fc;
+    
   }
   
   .success-message {
     font-size: 28px;
     color: #4CAF50;
-    margin-bottom: 10px;
+    margin-bottom: 0px;
     text-align: center;
   }
   
@@ -41,5 +41,12 @@ body, html {
     font-size: 16px;
     color: #333;
     text-align: center;
+    margin-bottom: 0px;
   }
   
+
+  .loading-icon {
+    font-size: 40px; /* Adjust size as needed */
+    color: #00796b; /* Color for the loading spinner */
+    margin-bottom: 15px; /* Space between the icon and the text */
+  }
