@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/kaiway/static/css/main.ad1488a8.css",
-    "main.js": "/kaiway/static/js/main.cb04b0ce.js",
+    "main.css": "/kaiway/static/css/main.8cf95ec8.css",
+    "main.js": "/kaiway/static/js/main.66512182.js",
     "static/js/453.ba04bc66.chunk.js": "/kaiway/static/js/453.ba04bc66.chunk.js",
     "index.html": "/kaiway/index.html",
-    "main.ad1488a8.css.map": "/kaiway/static/css/main.ad1488a8.css.map",
-    "main.cb04b0ce.js.map": "/kaiway/static/js/main.cb04b0ce.js.map",
+    "main.8cf95ec8.css.map": "/kaiway/static/css/main.8cf95ec8.css.map",
+    "main.66512182.js.map": "/kaiway/static/js/main.66512182.js.map",
     "453.ba04bc66.chunk.js.map": "/kaiway/static/js/453.ba04bc66.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ad1488a8.css",
-    "static/js/main.cb04b0ce.js"
+    "static/css/main.8cf95ec8.css",
+    "static/js/main.66512182.js"
   ]
 }
