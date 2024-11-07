@@ -1,8 +1,7 @@
 // src/pages/Flights.js
 import React from 'react';
-import { Link } from 'react-router-dom';
 import './Flights.css';
-import { useState } from 'react';
+import { useState,useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
 
 
@@ -22,6 +21,14 @@ const Flights = () => {
     setSelectedFlight(null);
   };
 
+  const [flightData, setFlightData] = useState(null);
+
+  useEffect(() => {
+    fetch('http://54.169.209.230:8080/api/search/connected/Sydney%2C%20Australia/Chaoshan%2C%20China/2024-11-10')
+      .then(response => response.json())
+      .then(data => setFlightData(data[0])) // Assuming we only need the first flight option
+      .catch(err => console.error('Error fetching flight data:', err));
+  }, []);
   
   return (
   
@@ -40,70 +47,70 @@ const Flights = () => {
         <img src={`${process.env.PUBLIC_URL}/asset/picture3.png`} alt="Airplane wing" className="header-image" />    
     </div>
     <div className="flights-container">
-      <h1 className="listname">请选择航班</h1>
+      <h1 className="listname">Please Select Your Flight</h1>
 
       <div className="flight-option" onClick={() => handleFlightClick('Flight 1 Details')}>
-      <div className="flight-info">
-        <div className="flight-summary">
-          <div className="departure">
-            <span className="departure-time">08:45</span>
-            <span className="airport">SGN</span>
-          </div>
-          <div className="flight-duration">
-            <span className="duration">12h22m</span>
-            <img src={`${process.env.PUBLIC_URL}/asset/arrow.png`} alt="Airplane wing" className="header-image" /> 
-            <span className="stops">1 stop</span>
-          </div>
-          <div className="arrival">
-            <span className="arrival-time">21:07</span>
-            <span className="destination">Chao Shan</span>
-          </div>
-          <div className="price">
-            <span>AUD $1452.74</span>
-          </div>
-        </div>
-        <div className="flight-details">
-          <div className="airline-info">
-            <div className="airline-details">
-              <img src={`${process.env.PUBLIC_URL}/asset/logo1.png`} alt="Cathay Pacific Logo" className="airline-logo" />
-              <span>Cathay Pacific - Economy</span>
+      {flightData ? (
+        <div className="flight-info">
+          <div className="flight-summary">
+            <div className="departure">
+              <span className="departure-time">{flightData.firstLeg.departureTime.slice(0, 5)}</span>
+              <span className="airport">{flightData.firstLeg.departureCode}</span>
             </div>
-            <button className="dropdown-button">▼</button>
+            <div className="flight-duration">
+              <span className="duration">{flightData.totalTime}</span>
+              <img src={`${process.env.PUBLIC_URL}/asset/arrow.png`} alt="Airplane wing" className="header-image" />
+              <span className="stops">{flightData.stop} stop</span>
+            </div>
+            <div className="arrival">
+              <span className="arrival-time">{flightData.secondLeg.arrivalTime.slice(0, 5)}</span>
+              <span className="destination">{flightData.secondLeg.arrivalCity}</span>
+            </div>
+            <div className="price">
+              <span>AUD ${flightData.totalPrice.toFixed(2)}</span>
+            </div>
+          </div>
+          <div className="flight-details">
+            <div className="airline-info">
+              <div className="airline-details">
+                <img src={`${process.env.PUBLIC_URL}/asset/logo1.png`} alt={`${flightData.firstLeg.carrierName} Logo`} className="airline-logo" />
+                <span>{flightData.firstLeg.carrierName} - {flightData.firstLeg.travelClass}</span>
+              </div>
+              <button className="dropdown-button">▼</button>
+            </div>
+          </div>
+
+          <div className="flight-details">
+            <div className="trainss-info">
+              <img src={`${process.env.PUBLIC_URL}/asset/logo2.png`} className="train-logo" />
+              <span>{flightData.secondLeg.carrierName} - {flightData.secondLeg.travelClass}</span>
+            </div>
           </div>
         </div>
-
-        <div className="flight-details">
-        <div className="trainss-info">
-          
-            <img src={`${process.env.PUBLIC_URL}/asset/logo2.png`} className="train-logo" />
-            <span>MTR - Second Class</span>
-            
-        </div>
-        </div>
-      </div>
-
-        
-      </div>
+      ) : (
+        <p>Loading flight data...</p>
+      )}
+    </div>
 
       {/* Flight Option 2 */}
-      <div className="flight-option" onClick={() => handleFlightClick('Flight 2 Details')}>
+      <div className="flight-option" >
       <div className="flight-info">
         <div className="flight-summary">
           <div className="departure">
-            <span className="departure-time">08:45</span>
-            <span className="airport">SGN</span>
+            <span className="departure-time">09:15</span>
+            <span className="airport">SYD</span>
           </div>
           <div className="flight-duration">
-            <span className="duration">12h22m</span>
+            <span className="duration">11:32</span>
             <img src={`${process.env.PUBLIC_URL}/asset/arrow.png`} alt="Airplane wing" className="header-image" /> 
             <span className="stops">1 stop</span>
           </div>
           <div className="arrival">
-            <span className="arrival-time">21:07</span>
-            <span className="destination">Chao Shan</span>
+            <span className="arrival-time">20:47</span>
+            <span className="destination">ChaoShan, China</span>
           </div>
           <div className="price">
-            <span>AUD $1452.74</span>
+            <span>AUD $1912.24</span>
           </div>
         </div>
         <div className="flight-details" >
@@ -130,24 +137,24 @@ const Flights = () => {
       </div>
 
       {/* Flight Option 3 */}
-      <div className="flight-option" onClick={() => handleFlightClick('Flight 3 Details')}>
+      <div className="flight-option" >
       <div className="flight-info">
         <div className="flight-summary">
           <div className="departure">
-            <span className="departure-time">08:45</span>
-            <span className="airport">SGN</span>
+            <span className="departure-time">12:45</span>
+            <span className="airport">SYD</span>
           </div>
           <div className="flight-duration">
-            <span className="duration">12h22m</span>
+            <span className="duration">11:30m</span>
             <img src={`${process.env.PUBLIC_URL}/asset/arrow.png`} alt="Airplane wing" className="header-image" /> 
             <span className="stops">1 stop</span>
           </div>
           <div className="arrival">
-            <span className="arrival-time">21:07</span>
-            <span className="destination">Chao Shan</span>
+            <span className="arrival-time">24:15</span>
+            <span className="destination">ChaoShan, China</span>
           </div>
           <div className="price">
-            <span>AUD $1452.74</span>
+            <span>AUD $2012.50</span>
           </div>
         </div>
         <div className="flight-details">
@@ -174,7 +181,7 @@ const Flights = () => {
       </div>
       
       
-      <h1 className="listname2">搜索更多</h1>
+      <h1 className="listname2">Search For More</h1>
       {selectedFlight && <FlightModal onClose={closeModal} />}
     </div>
   </div>
@@ -184,136 +191,140 @@ const Flights = () => {
 const FlightModal = ({ onClose }) => {
   const navigate = useNavigate();
 
+  const [flightData, setFlightData] = useState(null);
+
+  useEffect(() => {
+    fetch('http://54.169.209.230:8080/api/search/connected/Sydney%2C%20Australia/Chaoshan%2C%20China/2024-11-10')
+      .then(response => response.json())
+      .then(data => setFlightData(data[0])) // Assuming we only need the first flight option
+      .catch(err => console.error('Error fetching flight data:', err));
+  }, []);
+
   const handleClick = () => {
     navigate('/checkout'); // Replace '/target-path' with your desired route
   };
 
   return (
     <div className="modal-overlay">
-      <div className="modal-content">
-        <div className='first_line'>
+  <div className="modal-content">
+    <div className='first_line'>
+      <h2 className='titles'>Trip details</h2>
+      <button onClick={onClose} className="close-button">×</button>
+    </div>
+    <div className="divider-line"></div>
 
-        <h2 className='titles'>Trip details</h2>
-        <button onClick={onClose} className="close-button">×</button>
-        
-        </div>
-        <div className="divider-line"></div>
+    <div className="tab-container">
+      <div className="tab1 active">Trip info</div>
+      <div className="tab2">Refund & Reschedule</div>
+    </div>
 
-        <div className="tab-container">
-        <div className="tab1 active">Trip info</div>
-        <div className="tab2">Refund & Reschedule</div>
-      </div>
-
-        <div className="trip-info">
-          <div className='trip_name'>Sydney - ChaoShan</div>
-          <div className='trip_details'>
+    {flightData && (
+      <div className="trip-info">
+        <div className='trip_name'>{`${flightData.firstLeg.departureCity} - ${flightData.secondLeg.arrivalCity}`}</div>
+        <div className='trip_details'>
           <div className="flight-segment">
             <div className='one_flight'>
-            <img src={`${process.env.PUBLIC_URL}/asset/logo1.png`} alt="Cathay Pacific Logo" className="modal-logo" />
-            <div className="flight-details">
-            <span className='infof1'>Cathay Pacific - Economy</span>
-            <span className='infof2'>CX-110</span>
+              <img src={`${process.env.PUBLIC_URL}/asset/logo1.png`} alt={`${flightData.firstLeg.carrierName} Logo`} className="modal-logo" />
+              <div className="flight-details">
+                <span className='infof1'>{`${flightData.firstLeg.carrierName} - ${flightData.firstLeg.travelClass}`}</span>
+                <span className='infof2'>{`${flightData.firstLeg.carrierCode}-${flightData.firstLeg.transportNumber}`}</span>
+              </div>
             </div>
-            </div>
-            
+
             <div className="divider-line"></div>
             <div className='trip_detailss'>
-            <div className='from'>
-            <p className='s11 s13'>SYD</p>
-            <span className='s11'>08:45</span>
-            <p className='s11'>Wed 12/11/2024</p>
-            </div>
+              <div className='from'>
+                <p className='s11 s13'>{flightData.firstLeg.departureCode}</p>
+                <span className='s11'>{flightData.firstLeg.departureTime.slice(0, 5)}</span>
+                <p className='s11'>{flightData.departureDate}</p>
+              </div>
 
-            <div className='from'>
-            <p  className='s11 s12'> &nbsp;&nbsp;&nbsp;   9h 25m</p>
-            <img src={`${process.env.PUBLIC_URL}/asset/arrow.png`} alt="Airplane wing" className="header-image2 s11" /> 
-            </div>
+              <div className='from'>
+                <p className='s11 s12'> &nbsp;&nbsp;&nbsp; {flightData.firstLeg.timeDuration.slice(0, 5)}</p>
+                <img src={`${process.env.PUBLIC_URL}/asset/arrow.png`} alt="Airplane wing" className="header-image2 s11" />
+              </div>
 
-            <div className='from'>
-            <p className='s11 s13'>HKD</p>
-            <span className='s11'>15:10</span>
-            <p className='s11'>Wed 12/11/2024</p>
-            </div >
+              <div className='from'>
+                <p className='s11 s13'>{flightData.firstLeg.arrivalCode}</p>
+                <span className='s11'>{flightData.firstLeg.arrivalTime.slice(0, 5)}</span>
+                <p className='s11'>{flightData.arrivalDate}</p>
+              </div>
             </div>
-            
           </div>
 
           <div className="info-box">
             <span className="info-icon">ℹ️</span>
             <span className="info-text">
-              You will head to Hong Kong West Kowloon to take the train ( 3h 34min )
+              You will head to {flightData.secondLeg.departureCity} to take the train ( {flightData.layoverTime} )
             </span>
           </div>
 
           <div className="flight-segment">
-           
             <div className='one_flight'>
-            <img src={`${process.env.PUBLIC_URL}/asset/logo2.png`} alt="Cathay Pacific Logo" className="modal-logo" />
-            <div className="flight-details">
-            <span className='infof1'>MTR - Second Class</span>
-            <span className='infof2'>G-3008</span>
+              <img src={`${process.env.PUBLIC_URL}/asset/logo2.png`} alt={`${flightData.secondLeg.carrierName} Logo`} className="modal-logo" />
+              <div className="flight-details">
+                <span className='infof1'>{`${flightData.secondLeg.carrierName} - ${flightData.secondLeg.travelClass}`}</span>
+                <span className='infof2'>{`${flightData.secondLeg.carrierCode}-${flightData.secondLeg.transportNumber}`}</span>
+              </div>
             </div>
-            </div>
-            
+
             <div className="divider-line"></div>
             <div className='trip_detailss'>
-            <div className='from'>
-            <p className='s11 s13'>HK WestKowloon</p>
-            <span className='s11'>18:44</span>
-            <p className='s11'>Wed 12/11/2024</p>
-            </div>
+              <div className='from'>
+                <p className='s11 s13'>{flightData.secondLeg.departureCity}</p>
+                <span className='s11'>{flightData.secondLeg.departureTime.slice(0, 5)}</span>
+                <p className='s11'>{flightData.departureDate}</p>
+              </div>
 
-            <div className='from'>
-            <p  className='s11 s12'> &nbsp;&nbsp;&nbsp;   2h 23m</p>
-            <img src={`${process.env.PUBLIC_URL}/asset/arrow.png`} alt="Airplane wing" className="header-image2 s11" /> 
-            </div>
+              <div className='from'>
+                <p className='s11 s12'> &nbsp;&nbsp;&nbsp; {flightData.secondLeg.timeDuration.slice(0, 5)}</p>
+                <img src={`${process.env.PUBLIC_URL}/asset/arrow.png`} alt="Airplane wing" className="header-image2 s11" />
+              </div>
 
-            <div className='from'>
-            <p className='s11 s13'>ChaoShan</p>
-            <span className='s11'>21:07</span>
-            <p className='s11'>Wed 12/11/2024</p>
-            </div >
-            </div>
-
-          
-          </div>
-          </div>
-
-          <div className="details-box">
-            <span className="left-content label2">1 adult</span>
-            <div className="right-content">
-              <p>Flight: AUD $1408.11</p>
-              <p>Train: AUD $44.63</p>
-            </div>
-            
-          </div>
-
-          <div className="summary">
-            <div className="summary-row">
-              <span className="label2">Tax</span>
-              <span className="value">Included</span>
-            </div>
-            <div className="summary-row">
-              <span className="label2">Luggage</span>
-              <span className="value">0</span>
-            </div>
-            <div className="summary-row">
-              <span className="label2">Priority check in</span>
-              <span className="value">0</span>
-            </div>
-            <div className="summary-row total-row">
-              <span className="label2 total-label">Total</span>
-              <span className=" total-value s14">AUD $1452.74</span>
+              <div className='from'>
+                <p className='s11 s13'>{flightData.secondLeg.arrivalCode}</p>
+                <span className='s11'>{flightData.secondLeg.arrivalTime.slice(0, 5)}</span>
+                <p className='s11'>{flightData.arrivalDate}</p>
+              </div>
             </div>
           </div>
-
-
-          <button className="select-button2" onClick={handleClick}>
-            Select
-          </button>
         </div>
+
+        <div className="details-box">
+          <span className="left-content label2">1 adult</span>
+          <div className="right-content">
+            <p>Flight: AUD ${flightData.firstLeg.price.toFixed(2)}</p>
+            <p>Train: AUD ${flightData.secondLeg.price.toFixed(2)}</p>
+          </div>
+        </div>
+
+        <div className="summary">
+          <div className="summary-row">
+            <span className="label2">Tax</span>
+            <span className="value">Included</span>
+          </div>
+          <div className="summary-row">
+            <span className="label2">Luggage</span>
+            <span className="value">0</span>
+          </div>
+          <div className="summary-row">
+            <span className="label2">Priority check in</span>
+            <span className="value">0</span>
+          </div>
+          <div className="summary-row total-row">
+            <span className="label2 total-label">Total</span>
+            <span className=" total-value s14">AUD ${flightData.totalPrice.toFixed(2)}</span>
+          </div>
+        </div>
+
+        <button className="select-button2" onClick={handleClick}>
+          Select
+        </button>
       </div>
+    )}
+  </div>
     </div>
+
   );
 };
 

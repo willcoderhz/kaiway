@@ -1,6 +1,6 @@
 // src/pages/Home.js
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import './Home.css';
@@ -8,10 +8,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowsUpDown } from '@fortawesome/free-solid-svg-icons';
 import { faPlaneDeparture } from '@fortawesome/free-solid-svg-icons';
 import { faPlaneArrival } from '@fortawesome/free-solid-svg-icons';
-import { faCalendar } from '@fortawesome/free-solid-svg-icons';
 import { faCalendarDay } from '@fortawesome/free-solid-svg-icons';
 import { faCalendarWeek } from '@fortawesome/free-solid-svg-icons';
 import { faUser, faPlane } from '@fortawesome/free-solid-svg-icons';
+
 
 
 const Home = () => {
@@ -19,6 +19,36 @@ const Home = () => {
   const [returnDate, setReturnDate] = useState(null);
   const [departure, setDeparture] = useState('');
   const [destination, setDestination] = useState('');
+  const [departureCities, setDepartureCities] = useState([]);
+  const [arrivalCities, setArrivalCities] = useState([]);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // Fetch departure cities
+    fetch('http://54.169.209.230:8080/api/cities/departure')
+      .then(response => response.json())
+      .then(data => setDepartureCities(data))
+      .catch(err => console.error('Error fetching departure cities:', err));
+
+    // Fetch arrival cities
+    fetch('http://54.169.209.230:8080/api/cities/arrival')
+      .then(response => response.json())
+      .then(data => setArrivalCities(data))
+      .catch(err => console.error('Error fetching arrival cities:', err));
+  }, []);
+
+  const handleSearch = () => {
+    const departureExists = departureCities.includes(departure);
+    const destinationExists = arrivalCities.includes(destination);
+
+    if (departureExists && destinationExists) {
+      // Navigate to the next page if cities match
+      navigate('/flights');
+    } else {
+      // Show an alert if cities do not match
+      alert('Flight not found. Please check the departure and destination cities.');
+    }
+  };
 
   return (
     <div className="phone-frame">
@@ -123,7 +153,7 @@ const Home = () => {
             </div>
           </div>
 
-          <Link to="/flights" className="search-button">Search</Link>
+          <button onClick={handleSearch} className="search-button">Search</button>
         </div>
         <div className="recent-searches">
           <h3 className="recent-searches-title">Recent searches</h3>

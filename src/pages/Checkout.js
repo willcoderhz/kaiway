@@ -23,6 +23,7 @@ const Checkout = () => {
     'Auto Check-in',
     'Pre-order in-flight meals',
     'Transportation advice',
+    "Weather",
     'Buy airport merchandise for pick up',
   ];
 
