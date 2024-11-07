@@ -1,6 +1,6 @@
 // src/pages/Home.js
-import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect} from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import './Home.css';
@@ -11,7 +11,6 @@ import { faPlaneArrival } from '@fortawesome/free-solid-svg-icons';
 import { faCalendarDay } from '@fortawesome/free-solid-svg-icons';
 import { faCalendarWeek } from '@fortawesome/free-solid-svg-icons';
 import { faUser, faPlane } from '@fortawesome/free-solid-svg-icons';
-
 
 
 const Home = () => {
@@ -25,13 +24,13 @@ const Home = () => {
 
   useEffect(() => {
     // Fetch departure cities
-    fetch('http://54.169.209.230:8080/api/cities/departure')
+    fetch('https://54.169.209.230/api/cities/departure')
       .then(response => response.json())
       .then(data => setDepartureCities(data))
       .catch(err => console.error('Error fetching departure cities:', err));
 
     // Fetch arrival cities
-    fetch('http://54.169.209.230:8080/api/cities/arrival')
+    fetch('https://54.169.209.230/api/cities/arrival')
       .then(response => response.json())
       .then(data => setArrivalCities(data))
       .catch(err => console.error('Error fetching arrival cities:', err));

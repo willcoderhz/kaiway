@@ -1,8 +1,10 @@
 // src/pages/Flights.js
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Flights.css';
-import { useState,useEffect} from 'react';
+import { useState, useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 
 const Flights = () => {
@@ -24,11 +26,15 @@ const Flights = () => {
   const [flightData, setFlightData] = useState(null);
 
   useEffect(() => {
-    fetch('http://54.169.209.230:8080/api/search/connected/Sydney%2C%20Australia/Chaoshan%2C%20China/2024-11-10')
-      .then(response => response.json())
-      .then(data => setFlightData(data[0])) // Assuming we only need the first flight option
-      .catch(err => console.error('Error fetching flight data:', err));
+    axios.get('https://54.169.209.230/api/search/connected/Sydney%2C%20Australia/Chaoshan%2C%20China/2024-11-10')
+      .then(response => {
+        setFlightData(response.data[0]); // Assuming we only need the first flight option
+      })
+      .catch(error => {
+        console.error('Error fetching flight data:', error);
+      });
   }, []);
+
   
   return (
   
@@ -97,20 +103,20 @@ const Flights = () => {
       <div className="flight-info">
         <div className="flight-summary">
           <div className="departure">
-            <span className="departure-time">09:15</span>
+            <span className="departure-time">09:45</span>
             <span className="airport">SYD</span>
           </div>
           <div className="flight-duration">
-            <span className="duration">11:32</span>
+            <span className="duration">11:30</span>
             <img src={`${process.env.PUBLIC_URL}/asset/arrow.png`} alt="Airplane wing" className="header-image" /> 
             <span className="stops">1 stop</span>
           </div>
           <div className="arrival">
-            <span className="arrival-time">20:47</span>
-            <span className="destination">ChaoShan, China</span>
+            <span className="arrival-time">21:15</span>
+            <span className="destination">Chao Shan, China</span>
           </div>
           <div className="price">
-            <span>AUD $1912.24</span>
+            <span>AUD $4151.34</span>
           </div>
         </div>
         <div className="flight-details" >
@@ -141,20 +147,20 @@ const Flights = () => {
       <div className="flight-info">
         <div className="flight-summary">
           <div className="departure">
-            <span className="departure-time">12:45</span>
+            <span className="departure-time">10:45</span>
             <span className="airport">SYD</span>
           </div>
           <div className="flight-duration">
-            <span className="duration">11:30m</span>
+            <span className="duration">13:05</span>
             <img src={`${process.env.PUBLIC_URL}/asset/arrow.png`} alt="Airplane wing" className="header-image" /> 
             <span className="stops">1 stop</span>
           </div>
           <div className="arrival">
-            <span className="arrival-time">24:15</span>
-            <span className="destination">ChaoShan, China</span>
+            <span className="arrival-time">23:50</span>
+            <span className="destination">Chao Shan, China</span>
           </div>
           <div className="price">
-            <span>AUD $2012.50</span>
+            <span>AUD $2912.54</span>
           </div>
         </div>
         <div className="flight-details">
@@ -194,10 +200,13 @@ const FlightModal = ({ onClose }) => {
   const [flightData, setFlightData] = useState(null);
 
   useEffect(() => {
-    fetch('http://54.169.209.230:8080/api/search/connected/Sydney%2C%20Australia/Chaoshan%2C%20China/2024-11-10')
-      .then(response => response.json())
-      .then(data => setFlightData(data[0])) // Assuming we only need the first flight option
-      .catch(err => console.error('Error fetching flight data:', err));
+    axios.get('https://54.169.209.230/api/search/connected/Sydney%2C%20Australia/Chaoshan%2C%20China/2024-11-10')
+      .then(response => {
+        setFlightData(response.data[0]); // Assuming we only need the first flight option
+      })
+      .catch(error => {
+        console.error('Error fetching flight data:', error);
+      });
   }, []);
 
   const handleClick = () => {

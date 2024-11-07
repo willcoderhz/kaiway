@@ -42,6 +42,54 @@ Kaiway is an integrated booking platform that allows users to seamlessly book fl
 
 ---
 
+# Guide to Installing and Configuring Certificates on Windows
+
+This document provides step-by-step instructions for installing a `.crt` file and launching Chrome with certificate error bypass for development purposes.
+
+## Launching Chrome with Certificate Error Bypass
+
+To run Chrome with the `--ignore-certificate-errors` flag, follow the instructions below based on your system version.
+
+### Instructions for 64-bit Windows
+
+1. Open **PowerShell**.
+2. Run the following command:
+   ```powershell
+   & "C:\Program Files\Google\Chrome\Application\chrome.exe" --ignore-certificate-errors
+
+###  Instructions for 32-bit Windows
+1. Open PowerShell.
+2. Run this command:
+    ```powershell
+    & "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --ignore-certificate-errors
+
+# Installing `mycert.crt` File on Windows
+
+Follow these steps to install a `.crt` file and add it to the trusted root certification authorities:
+
+## Step 1: Open the `.crt` File
+- Locate the downloaded `mycert.crt` file on your computer.
+- Double-click the file to open it.
+
+## Step 2: Install the Certificate
+- In the certificate dialog that appears, click **"Install Certificate"**.
+
+## Step 3: Select Certificate Store Location
+- Choose **"Local Machine"** and click **"Next"**.
+- Select **"Place all certificates in the following store"**.
+- Click **"Browse"** and choose **"Trusted Root Certification Authorities"**.
+- Click **"OK"** to confirm your selection.
+
+## Step 4: Complete the Installation
+- Click **"Next"**, and then **"Finish"** to complete the installation.
+- A confirmation message should appear, indicating that the certificate was successfully installed.
+
+## Step 5: Restart the Browser
+- Close all instances of Chrome.
+- Reopen Chrome to ensure that the new certificate settings are applied.
+
+
+
 ## Tech Stack
 
 - **Frontend**: React, CSS, Font Awesome
